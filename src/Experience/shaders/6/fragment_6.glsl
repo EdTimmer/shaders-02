@@ -39,7 +39,7 @@ void main() {
 
     for (float i = 0.0; i < 2.0; i++) {
         uv1 = fract(uv1 * 3.0) - 0.5;
-        float d = sdRoundedX(uv1, w, r) * exp(-length(uv0));;
+        float d = sdRoundedX(uv1, w, r) * exp(-length(uv0));
         vec3 col = palette(length(uv0) + (i * 0.4) + u_Time * 0.000005);
 
         d = sin(d * 8.0 + (u_Time * 0.0005)) / 8.0;

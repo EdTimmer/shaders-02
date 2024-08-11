@@ -44,7 +44,7 @@ void main() {
 
         d = sin(d * 8.0 + (u_Time * 0.001)) / 8.0;
         d = abs(d);
-        d = pow(0.01 / d, 1.2);
+        d = pow(0.01 / d, 0.9);
 
         finalColor += col * d;
     }
