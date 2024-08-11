@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import Experience from '../Experience'
-import vertexShader from '../shaders/one/vertex.glsl'
-import fragmentShader from '../shaders/one/fragment.glsl'
+import vertexShader from '../shaders/1/vertex_1.glsl'
+import fragmentShader from '../shaders/1/fragment_1.glsl'
 
 export default class SurfaceOne {
   constructor() {
