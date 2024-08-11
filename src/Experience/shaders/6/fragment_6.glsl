@@ -29,15 +29,15 @@ void main() {
     vec2 uv0 = vUv0;
 
     
-    uv0 = fract(uv0 * 2.0) - 0.5;
+    uv0 = fract(uv0 * 1.0) - 0.5;
 
     vec3 finalColor = vec3(0.0);
 
     // Hexagram size (adjust as needed)
-    float w = 0.1;
-    float r = 0.1;
+    float w = 0.5;
+    float r = 0.5;
 
-    for (float i = 0.0; i < 4.0; i++) {
+    for (float i = 0.0; i < 2.0; i++) {
         uv1 = fract(uv1 * 3.0) - 0.5;
         float d = sdRoundedX(uv1, w, r) * exp(-length(uv0));;
         vec3 col = palette(length(uv0) + (i * 0.4) + u_Time * 0.000005);
