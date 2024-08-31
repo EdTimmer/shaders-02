@@ -7,6 +7,7 @@ import SurfaceThree from "./SurfaceThree"
 import SurfaceFour from "./SurfaceFour"
 import SurfaceFive from "./SurfaceFive"
 import SurfaceSix from "./SurfaceSix"
+import SurfaceSeven from "./SurfaceSeven"
 
 export default class World {
   constructor() {
@@ -33,6 +34,7 @@ export default class World {
       this.surfaceFour = new SurfaceFour();
       this.surfaceFive = new SurfaceFive();
       this.surfaceSix = new SurfaceSix();
+      this.surfaceSeven = new SurfaceSeven();
 
       this.environment = new Environment()
            
@@ -62,6 +64,9 @@ export default class World {
     }
     if (this.surfaceSix) {
       this.surfaceSix.update()
+    }
+    if (this.surfaceSeven) {
+      this.surfaceSeven.update()
     }
   }
 }

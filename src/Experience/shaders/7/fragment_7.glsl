@@ -57,7 +57,7 @@ float cnoise(vec2 P) {
 }
 
 void main() {
-
+    // PERLIN NOISE - OIL FILM EFFECT
     vec2 uv1 = vUv;
     vec2 uv0 = vUv0;
 
@@ -66,17 +66,21 @@ void main() {
 
     vec3 finalColor = vec3(0.0);
 
-    for (float i = 0.0; i < 3.0; i++) {
-        uv1 = fract(uv1 * 2.5) - 0.5;
-        float d = length(uv1) * exp(-length(uv0));
+    for (float i = 0.0; i < 1.0; i++) {
+        uv1 = fract(uv1 * 1.0) - 0.5;
+        float d = sin((cnoise(vUv * 5.0) + u_Time * 0.00000000000001) * 1.0);
+
+        float strength = sin((cnoise(vUv * 5.0) + u_Time * 0.0001) * 10.0);
+
         vec3 col = palette(length(uv0) + (i * 0.4) + u_Time * 0.00005);
+        // vec3 col = vec3(strength, strength, strength);
 
         d = sin(d * 8.0 + (u_Time * 0.001)) / 8.0;
-        d = abs(d);
+        // d = abs(d);
         d = pow(0.01 / d, 0.9);
 
         finalColor += col * d;
     }
 
-     gl_FragColor = vec4(finalColor, 1.0);
+    gl_FragColor = vec4(finalColor, 1.0);
 }
