@@ -39,7 +39,7 @@ export default class SurfaceSix {
 
   setMesh() {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
-    this.mesh.position.set(60, -30, 0);
+    this.mesh.position.set(60, 0, 0);
 
     this.meshPosition = this.mesh.position;
     this.meshQuaternion = this.mesh.quaternion;

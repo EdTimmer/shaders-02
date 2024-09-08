@@ -1,13 +1,14 @@
 import * as THREE from "three"
 import Experience from "../Experience"
 import Environment from "./Environment"
-import SurfaceOne from "./SurfaceOne"
-import SurfaceTwo from "./SurfaceTwo"
-import SurfaceThree from "./SurfaceThree"
-import SurfaceFour from "./SurfaceFour"
 import SurfaceFive from "./SurfaceFive"
+import SurfaceFour from "./SurfaceFour"
+import SurfaceThree from "./SurfaceThree"
+import SurfaceTwo from "./SurfaceTwo"
+import SurfaceOne from "./SurfaceOne"
 import SurfaceSix from "./SurfaceSix"
 import SurfaceSeven from "./SurfaceSeven"
+import SurfaceEight from "./SurfaceEight"
 
 export default class World {
   constructor() {
@@ -28,13 +29,14 @@ export default class World {
     // Wait for resources
     this.resources.on('ready', () => {
       // Setup
-      this.surfaceOne = new SurfaceOne();
-      this.surfaceTwo = new SurfaceTwo();
+      this.surfaceOne = new SurfaceFive();
+      this.surfaceTwo = new SurfaceFour();
       this.surfaceThree = new SurfaceThree();
-      this.surfaceFour = new SurfaceFour();
-      this.surfaceFive = new SurfaceFive();
+      this.surfaceFour = new SurfaceTwo();
+      this.surfaceFive = new SurfaceOne();
       this.surfaceSix = new SurfaceSix();
       this.surfaceSeven = new SurfaceSeven();
+      this.surfaceEight = new SurfaceEight();
 
       this.environment = new Environment()
            
@@ -67,6 +69,9 @@ export default class World {
     }
     if (this.surfaceSeven) {
       this.surfaceSeven.update()
+    }
+    if (this.surfaceEight) {
+      this.surfaceEight.update()
     }
   }
 }
