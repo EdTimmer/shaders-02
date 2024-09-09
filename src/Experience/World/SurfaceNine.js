@@ -30,11 +30,11 @@ export default class SurfaceNine {
     //   },
     // })
     this.material  = new THREE.MeshPhysicalMaterial({
-      // color: 0x000000,
-      color: 'white',
+      color: 0x000000,
+      // color: 'white',
       metalness: 1.0,
       roughness: 0.0,
-      envMap: this.environmentMap,
+      // envMap: this.environmentMap,
       envMapIntensity: 0.1,
       opacity: 1.0,
     });
@@ -47,7 +47,7 @@ export default class SurfaceNine {
     // this.geometry = new THREE.PlaneGeometry(50, 50, 32, 32);
     // this.geometry = new THREE.SphereGeometry(26, 32, 32);
     // this.geometry = new THREE.BoxGeometry(50, 50, 50, 32, 32, 32);
-    this.geometry = new THREE.TorusGeometry(20, 16, 16, 100);
+    this.geometry = new THREE.TorusGeometry(18, 10, 16, 100);
   }
 
   setMesh() {
