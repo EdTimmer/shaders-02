@@ -11,9 +11,10 @@ export default class SurfaceFive {
     this.mouse = new THREE.Vector2();
     this.raycaster = new THREE.Raycaster();
     // this.environmentMap = this.experience.resources.items.environmentMap;
+    this.avaImage  = this.experience.resources.items.avaImage;
 
-    this.textureLoader = new THREE.TextureLoader();
-    this.oilTexture = this.textureLoader.load('/background/ava.jpg');
+    // this.textureLoader = new THREE.TextureLoader();
+    // this.oilTexture = this.textureLoader.load('/background/ava.jpg');
 
     this.setMaterial()
     this.setGeometry()
@@ -22,7 +23,7 @@ export default class SurfaceFive {
   }
 
   setMaterial() {
-    if (this.oilTexture) {
+    if (this.avaImage) {
       this.material = new THREE.RawShaderMaterial({
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
@@ -33,7 +34,7 @@ export default class SurfaceFive {
         uniforms: {
           u_Frequency: { value: new THREE.Vector2(0.1, 0.05) },
           u_Time: { value: 0.0 },
-          u_Texture: { value: this.oilTexture }
+          u_Texture: { value: this.avaImage }
         }
       });
     }

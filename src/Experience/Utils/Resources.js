@@ -28,6 +28,7 @@ export default class Resources extends EventEmitter {
     this.loaders.gltfLoader = new GLTFLoader()
     this.loaders.textureLoader = new THREE.TextureLoader()
     this.loaders.RGBELoader = new RGBELoader()
+    this.textureLoader = new THREE.TextureLoader();
     // this.loaders.audioLoader = new THREE.AudioLoader()
     // add draco loader if needed    
   }
@@ -41,9 +42,9 @@ export default class Resources extends EventEmitter {
       if (source.type === 'background') {
         this.loadHDRBackground(source.path)
       } 
-      // else if (source.type === 'audio') {
-      //   this.loadAudio(source.path, source.name)
-      // }
+      else if (source.type === 'image') {
+        this.loadImage(source.path, source.name)
+      }
     }
   }
 
@@ -57,6 +58,16 @@ export default class Resources extends EventEmitter {
       }
     );
   }
+
+  loadImage(path, name) {
+    this.loaders.textureLoader.load(
+      path,
+      (texture) => {
+        this.sourceLoaded({ name: name, type: 'image' }, texture);
+      }
+    );
+  }
+  
 
   // loadAudio(path, name) {
   //   this.loaders.audioLoader.load(
