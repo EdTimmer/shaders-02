@@ -30,13 +30,14 @@ export default class SurfaceNine {
     //   },
     // })
     this.material  = new THREE.MeshPhysicalMaterial({
-      color: 0x000000,
-      // color: 'white',
+      // color: 0x000000,
+      color: 'white',
       metalness: 1.0,
       roughness: 0.0,
       // envMap: this.environmentMap,
       envMapIntensity: 0.1,
       opacity: 1.0,
+      side: THREE.DoubleSide,
     });
 
     
